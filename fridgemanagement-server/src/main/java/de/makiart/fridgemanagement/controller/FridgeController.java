@@ -31,6 +31,7 @@ public class FridgeController {
      * Load all {@link Fridge} elements
      * @return a list of {@link Fridge}
      */
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.GET)
     public List<Fridge> loadAll() {
         return service.loadAll();

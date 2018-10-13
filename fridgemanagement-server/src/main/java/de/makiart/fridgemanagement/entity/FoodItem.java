@@ -1,5 +1,6 @@
 package de.makiart.fridgemanagement.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,7 +9,7 @@ import java.time.LocalDate;
 public class FoodItem {
 
     @Id
-    private String id;
+    private ObjectId _id;
 
     // Name of the food
     private String name;

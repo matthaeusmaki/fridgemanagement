@@ -1,5 +1,6 @@
 package de.makiart.fridgemanagement.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,7 +10,7 @@ import java.util.List;
 public class Fridge {
 
     @Id
-    private String id;
+    private ObjectId _id;
 
     // name of the fridge
     private String name;

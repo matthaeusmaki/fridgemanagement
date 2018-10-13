@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {FridgeService} from "../shared/fridge/fridge.service";
 
 @Component({
     selector: 'fm-fridge-list',
@@ -8,9 +8,9 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FridgeListComponent implements OnInit {
 
-    test;
+    test: any;
 
-    constructor(private http: HttpClient) {
+    constructor(private fridgeService: FridgeService) {
     }
 
     ngOnInit() {
@@ -18,8 +18,9 @@ export class FridgeListComponent implements OnInit {
     }
 
     private loadData() {
-        let fridgesUrl = 'localhost:8080/fridges';
-        this.test = this.http.get(fridgesUrl);
+        this.fridgeService.loadAll().subscribe(data => {
+            this.test = data;
+        })
     }
 
 }
