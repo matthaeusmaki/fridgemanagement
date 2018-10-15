@@ -13,10 +13,12 @@ import java.util.Optional;
 public class FoodCrudService {
 
     private FoodRepository repo;
+    private FridgeRepository frepo;
 
     @Autowired
-    public FoodCrudService(FoodRepository repo) {
+    public FoodCrudService(FoodRepository repo, FridgeRepository frepo) {
         this.repo = repo;
+        this.frepo = frepo;
     }
 
     /**
@@ -38,21 +40,12 @@ public class FoodCrudService {
     }
 
     /**
-     * Load all {@link FoodItem}s
-     * @return a list of {@link FoodItem}
-     */
-    public List<FoodItem> loadAll() {
-        return repo.findAll();
-    }
-
-    /**
      * Load all {@link FoodItem} of the given {@link Fridge}
      * @param id of the fridge
      * @return a list of {@link FoodItem} or a empty list
      */
     public List<FoodItem> loadAllOfFridge(String id) {
-        // TODO
-        return new ArrayList<>();
+        return repo.findByFridgeId(id).orElse(new ArrayList<>());
     }
 
     /**

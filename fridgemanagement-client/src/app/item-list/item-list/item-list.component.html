@@ -1,12 +1,9 @@
 <p>
-  item-list works!
+    fridge id is {{fridgeId}}
 </p>
 
-<ul>
-  <li>Test 1</li>
-  <li>Test 2</li>
-  <li>Test 3</li>
-  <li>Test 4</li>
-  <li>Test 5</li>
-  <li>Test 6</li>
-</ul>
+<mat-list>
+    <mat-list-item *ngFor="let item of foodItems">
+        {{item.name}}
+    </mat-list-item>
+</mat-list>

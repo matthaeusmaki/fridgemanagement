@@ -2,6 +2,14 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 
+import {
+    MatButtonModule,
+    MatExpansionModule,
+    MatListModule,
+    MatToolbarModule
+} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {AppComponent} from './app.component';
 import {ItemListComponent} from './item-list/item-list/item-list.component';
 import {FridgeListComponent} from './fridge-list/fridge-list.component';
@@ -10,11 +18,16 @@ import {FridgeListComponent} from './fridge-list/fridge-list.component';
     declarations: [
         AppComponent,
         ItemListComponent,
-        FridgeListComponent
+        FridgeListComponent,
     ],
     imports: [
         BrowserModule,
-        HttpClientModule
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatListModule,
+        MatToolbarModule,
+        MatExpansionModule
     ],
     providers: [],
     bootstrap: [AppComponent]

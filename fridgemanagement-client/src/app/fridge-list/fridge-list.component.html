@@ -1,5 +1,15 @@
-<p>
-  fridge-list works!
-</p>
+<mat-accordion multi="true">
+    <mat-expansion-panel *ngFor="let fridge of fridgeList">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{fridge.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Beschreibung
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-{{test | json}}
+        <fm-item-list [fridgeId]="fridge.id"></fm-item-list>
+    </mat-expansion-panel>
+</mat-accordion>
+

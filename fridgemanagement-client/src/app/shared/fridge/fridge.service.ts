@@ -7,10 +7,10 @@ import {Observable} from 'rxjs';
 })
 export class FridgeService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient) {//, private url: Url
     }
 
     loadAll(): Observable<any> {
-        return this.http.get('//localhost:8080/fridge')
+        return this.http.get("//localhost:8080/fridge");//this.url.getFridge)
     }
 }

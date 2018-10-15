@@ -4,6 +4,7 @@ import de.makiart.fridgemanagement.entity.FoodItem;
 import de.makiart.fridgemanagement.entity.Fridge;
 import de.makiart.fridgemanagement.service.FoodCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,13 +20,10 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-    /**
-     * Load all {@link FoodItem}s
-     * @return a List of {@link FoodItem}s
-     */
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.GET)
-    public List<FoodItem> loadAll() {
-        return foodService.loadAll();
+    public List<FoodItem> loadByFridgeId(@RequestParam String id) {
+        return foodService.loadAllOfFridge(id);
     }
 
     /**

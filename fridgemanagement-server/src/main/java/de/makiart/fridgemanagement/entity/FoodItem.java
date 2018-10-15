@@ -1,15 +1,21 @@
 package de.makiart.fridgemanagement.entity;
 
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
+@Getter @Setter
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+@Document
 public class FoodItem {
 
     @Id
-    private ObjectId _id;
+    private String id;
 
     // Name of the food
     private String name;
@@ -23,35 +29,6 @@ public class FoodItem {
     // Expiration date of the food
     private LocalDate expirationDate;
 
-    public String getName() {
-        return name;
-    }
+    private String fridgeId;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getBarcodeId() {
-        return barcodeId;
-    }
-
-    public void setBarcodeId(String barcodeId) {
-        this.barcodeId = barcodeId;
-    }
-
-    public LocalDate getOpenDate() {
-        return openDate;
-    }
-
-    public void setOpenDate(LocalDate openDate) {
-        this.openDate = openDate;
-    }
-
-    public LocalDate getExpirationDate() {
-        return expirationDate;
-    }
-
-    public void setExpirationDate(LocalDate expirationDate) {
-        this.expirationDate = expirationDate;
-    }
 }

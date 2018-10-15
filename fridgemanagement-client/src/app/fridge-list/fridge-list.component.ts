@@ -8,7 +8,7 @@ import {FridgeService} from "../shared/fridge/fridge.service";
 })
 export class FridgeListComponent implements OnInit {
 
-    test: any;
+    fridgeList: any[] = [];
 
     constructor(private fridgeService: FridgeService) {
     }
@@ -19,7 +19,7 @@ export class FridgeListComponent implements OnInit {
 
     private loadData() {
         this.fridgeService.loadAll().subscribe(data => {
-            this.test = data;
+            this.fridgeList = data;
         })
     }
 
