@@ -1,4 +1,4 @@
-<mat-accordion multi="true">
+<mat-accordion multi="true" class="example-headers-align">
     <mat-expansion-panel *ngFor="let fridge of fridgeList">
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -9,7 +9,9 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <fm-item-list [fridgeId]="fridge.id"></fm-item-list>
+        <ng-template matExpansionPanelContent>
+            <fm-item-list [fridgeId]="fridge.id"></fm-item-list>
+        </ng-template>
     </mat-expansion-panel>
 </mat-accordion>
 

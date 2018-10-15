@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class FridgeService {
 
-    constructor(private http: HttpClient) {//, private url: Url
+    constructor(private http: HttpClient) {
     }
 
     loadAll(): Observable<any> {

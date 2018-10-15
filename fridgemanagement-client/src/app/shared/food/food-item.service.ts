@@ -11,7 +11,6 @@ export class FoodItemService {
   constructor(private http: HttpClient) {}
 
   loadByFridgeId(id: string): Observable<any> {
-      // return this.http.get("//localhost:8080/food?id=" + id);
       return this.http.get(Url.getFoodByFridgeId(id));
   }
 }
