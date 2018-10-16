@@ -1,3 +1,19 @@
-p {
-  color: darkgrey;
+@flex-container-height: 30px;
+
+.flex-container {
+    display: flex;
+    height: @flex-container-height;
+
+    mat-progress-bar {
+        margin-top: @flex-container-height / 2;
+    }
+
+    .open-closed-icon {
+        margin-right: 5px;
+        height: @flex-container-height;
+        width: @flex-container-height;
+    }
 }
+
+
+

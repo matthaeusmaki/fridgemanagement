@@ -9,7 +9,8 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTooltipModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -33,7 +34,8 @@ import {FridgeListComponent} from './fridge-list/fridge-list.component';
         MatExpansionModule,
         MatCardModule,
         MatIconModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        MatTooltipModule
     ],
     providers: [],
     bootstrap: [AppComponent]
