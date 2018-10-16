@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {FoodItemListComponent} from './food-item-list/food-item-list.component';
 import {FridgeListComponent} from './fridge-list/fridge-list.component';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,9 @@ import {FridgeListComponent} from './fridge-list/fridge-list.component';
         MatProgressBarModule,
         MatTooltipModule
     ],
-    providers: [],
+    providers: [
+        DatePipe
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

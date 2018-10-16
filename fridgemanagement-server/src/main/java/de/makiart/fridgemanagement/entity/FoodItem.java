@@ -1,13 +1,13 @@
 package de.makiart.fridgemanagement.entity;
 
 import lombok.*;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
@@ -30,5 +30,8 @@ public class FoodItem {
     private LocalDate expirationDate;
 
     private String fridgeId;
+
+    // The date on which the food was added
+    private LocalDate startDate;
 
 }

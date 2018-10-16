@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FridgeService} from "../shared/fridge/fridge.service";
+import {FridgeService} from "../shared/service/fridge.service";
+import {Fridge} from "../shared/type/fridge";
 
 @Component({
     selector: 'fm-fridge-list',
@@ -8,7 +9,7 @@ import {FridgeService} from "../shared/fridge/fridge.service";
 })
 export class FridgeListComponent implements OnInit {
 
-    fridgeList: any[] = [];
+    fridgeList: Fridge[] = [];
 
     constructor(private fridgeService: FridgeService) {
     }

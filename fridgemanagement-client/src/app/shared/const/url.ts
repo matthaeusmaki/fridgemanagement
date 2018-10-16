@@ -6,7 +6,7 @@ export class Url {
         return Url.baseUrl + "/fridge";
     }
 
-    public static getFoodByFridgeId(id: string) {
+    public static loadFoodItemsByFridgeId(id: string) {
         return `${Url.baseUrl}/food?id=${id}`;
     }
 }

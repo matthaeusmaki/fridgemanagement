@@ -22,4 +22,6 @@ public class Fridge {
 
     // description of the fridge
     private String description;
+
+
 }
