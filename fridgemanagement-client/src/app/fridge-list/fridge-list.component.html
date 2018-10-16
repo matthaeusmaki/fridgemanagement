@@ -12,6 +12,12 @@
         <ng-template matExpansionPanelContent>
             <fm-item-list [fridgeId]="fridge.id"></fm-item-list>
         </ng-template>
+
+        <mat-action-row>
+            <button mat-mini-fab color="primary">
+                <mat-icon aria-label="Hinzufügen">add</mat-icon>
+            </button>
+        </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>
 

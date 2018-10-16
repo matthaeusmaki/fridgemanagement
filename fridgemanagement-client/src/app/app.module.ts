@@ -14,13 +14,13 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-import {ItemListComponent} from './item-list/item-list/item-list.component';
+import {FoodItemListComponent} from './food-item-list/food-item-list.component';
 import {FridgeListComponent} from './fridge-list/fridge-list.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        ItemListComponent,
+        FoodItemListComponent,
         FridgeListComponent,
     ],
     imports: [

@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Input} from '@angular/core';
-import {FoodItemService} from "../../shared/food/food-item.service";
+import {FoodItemService} from "../shared/food/food-item.service";
 
 @Component({
     selector: 'fm-item-list',
-    templateUrl: './item-list.component.html',
-    styleUrls: ['./item-list.component.less']
+    templateUrl: './food-item-list.component.html',
+    styleUrls: ['./food-item-list.component.less']
 })
-export class ItemListComponent implements OnInit {
+export class FoodItemListComponent implements OnInit {
 
     @Input() fridgeId: string;
 

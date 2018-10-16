@@ -1,9 +1,0 @@
-<mat-list>
-    <mat-list-item *ngFor="let item of foodItems">
-        <mat-card style="margin-bottom:10px; width:100%">
-            {{item.name}}<br />
-            <mat-icon svgIcon="{{item.openDate ? 'box_open' : 'box_closed'}}"></mat-icon>
-            <mat-progress-bar mode="determinate" value="25"></mat-progress-bar>
-        </mat-card>
-    </mat-list-item>
-</mat-list>

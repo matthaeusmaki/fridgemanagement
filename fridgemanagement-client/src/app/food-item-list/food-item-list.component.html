@@ -1,0 +1,17 @@
+<mat-card *ngFor="let item of foodItems" style="margin-bottom:10px;">
+    <mat-card-title>
+        {{item.name}}<br/>
+    </mat-card-title>
+    <mat-card-content>
+        <mat-icon svgIcon="{{item.openDate ? 'box_open' : 'box_closed'}}"></mat-icon>
+        <mat-progress-bar mode="determinate" value="25"></mat-progress-bar>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-icon-button>
+            <mat-icon aria-label="Bearbeiten">edit</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon aria-label="Entfernen">clear</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
