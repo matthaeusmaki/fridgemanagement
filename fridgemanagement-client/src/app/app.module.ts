@@ -4,12 +4,12 @@ import {HttpClientModule} from '@angular/common/http'
 
 import {
     MatButtonModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatIconModule,
     MatCardModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatListModule,
     MatProgressBarModule,
+    MatToolbarModule,
     MatTooltipModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
