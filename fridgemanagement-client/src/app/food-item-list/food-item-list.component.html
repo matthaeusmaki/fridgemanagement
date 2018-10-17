@@ -11,7 +11,9 @@
                 [matTooltip]="getOpenClosedMessage(item.openDate)"
                 matTooltipClass="food-item-tooltip"></mat-icon>
             <mat-progress-bar mode="determinate"
-                              value="{{getRemainingPercent(item)}}"></mat-progress-bar>
+                              value="{{item.getRemainingPercent()}}"
+                              color="{{item.getRemainingPercent() <= 75 ? 'primary' : 'warn'}}"
+                              matTooltip="Mindestens haltbar bis {{item.expirationDate | date:'dd.MM.yyyy'}} noch {{item.remainingDays}} Tage"></mat-progress-bar>
             <span
                 class="expiration-date">{{item.expirationDate | date:'dd.MM.yyyy'}}</span>
         </div>

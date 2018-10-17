@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FoodItemService} from "../shared/service/food-item.service";
 import {DatePipe} from '@angular/common';
-import {FoodItem} from "../shared/type/food.item";
+import {FoodItem} from "../shared/model/food-item.model";
 
 @Component({
     selector: 'fm-item-list',
@@ -21,9 +21,10 @@ export class FoodItemListComponent implements OnInit {
     }
 
     private loadData() {
-        this.foodService.loadFoodItemsByFridgeId(this.fridgeId).subscribe(data => {
-            this.foodItems = data;
-        });
+        this.foodService.loadFoodItemsByFridgeId(this.fridgeId)
+            .subscribe(data => {
+                data.forEach(d => this.foodItems.push(new FoodItem(d)));
+            });
     }
 
     protected getOpenClosedMessage(date: string): string {
@@ -32,19 +33,5 @@ export class FoodItemListComponent implements OnInit {
         } else {
             return "geschlossen";
         }
-    }
-
-    protected getRemainingPercent(item: FoodItem): number {
-        let startRemainging = this.calculateDays(new Date(item.startDate), new Date(item.expirationDate));
-        let nowRemaining = this.calculateDays(new Date(), new Date(item.expirationDate));
-        return Math.ceil(100 - nowRemaining / startRemainging * 100);
-    }
-
-    private calculateDays(startDate: Date, endDate: Date) {
-        let diff = startDate.getTime() - endDate.getTime();
-        if (diff >= 0) {
-            return 0;
-        }
-        return Math.ceil(Math.abs(diff) / (1000 * 3600 * 24));
     }
 }

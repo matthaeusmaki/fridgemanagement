@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FridgeService} from "../shared/service/fridge.service";
-import {Fridge} from "../shared/type/fridge";
+import {Fridge} from "../shared/model/fridge.model";
 
 @Component({
     selector: 'fm-fridge-list',

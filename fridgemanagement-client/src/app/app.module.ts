@@ -18,6 +18,8 @@ import {AppComponent} from './app.component';
 import {FoodItemListComponent} from './food-item-list/food-item-list.component';
 import {FridgeListComponent} from './fridge-list/fridge-list.component';
 import {DatePipe} from '@angular/common';
+import {FoodItemService} from "./shared/service/food-item.service";
+import {FridgeService} from "./shared/service/fridge.service";
 
 @NgModule({
     declarations: [
@@ -39,7 +41,9 @@ import {DatePipe} from '@angular/common';
         MatTooltipModule
     ],
     providers: [
-        DatePipe
+        DatePipe,
+        FridgeService,
+        FoodItemService
     ],
     bootstrap: [AppComponent]
 })

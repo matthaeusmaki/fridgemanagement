@@ -2,11 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Url} from "../const/url";
 import {Observable} from 'rxjs';
-import {FoodItem} from "../type/food.item";
+import {FoodItem} from "../model/food-item.model";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class FoodItemService {
 
     constructor(private http: HttpClient) {
