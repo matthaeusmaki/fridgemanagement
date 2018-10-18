@@ -23,7 +23,7 @@ public class FridgeCrudService {
      * @return the persisted fridge
      */
     public Fridge createFridge(Fridge fridge) {
-        return repo.save(fridge);
+        return repo.insert(fridge);
     }
 
     /**

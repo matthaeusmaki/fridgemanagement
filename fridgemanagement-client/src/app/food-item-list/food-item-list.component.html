@@ -1,6 +1,10 @@
 <mat-card *ngFor="let item of foodItems">
     <mat-card-title>
         {{item.name}}
+
+        <button mat-icon-button matTooltip="{{item.name}} entfernen">
+            <mat-icon aria-label="Entfernen">clear</mat-icon>
+        </button>
     </mat-card-title>
 
     <mat-card-content>
@@ -21,11 +25,11 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-icon-button>
-            <mat-icon aria-label="Bearbeiten">edit</mat-icon>
+        <button mat-icon-button matTooltip="{{item.name}} aufgegessen">
+            <mat-icon aria-label="Aufgegessen">local_dining</mat-icon>
         </button>
-        <button mat-icon-button>
-            <mat-icon aria-label="Entfernen">clear</mat-icon>
+        <button mat-icon-button matTooltip="{{item.name}} bearbeiten">
+            <mat-icon aria-label="Bearbeiten">edit</mat-icon>
         </button>
     </mat-card-actions>
 </mat-card>

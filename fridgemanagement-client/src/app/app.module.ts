@@ -10,7 +10,10 @@ import {
     MatListModule,
     MatProgressBarModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -20,12 +23,15 @@ import {FridgeListComponent} from './fridge-list/fridge-list.component';
 import {DatePipe} from '@angular/common';
 import {FoodItemService} from "./shared/service/food-item.service";
 import {FridgeService} from "./shared/service/fridge.service";
+import {FridgeModal} from './fridge-modal/fridge.modal.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
         AppComponent,
         FoodItemListComponent,
         FridgeListComponent,
+        FridgeModal,
     ],
     imports: [
         BrowserModule,
@@ -38,14 +44,21 @@ import {FridgeService} from "./shared/service/fridge.service";
         MatCardModule,
         MatIconModule,
         MatProgressBarModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatDialogModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule
     ],
     providers: [
         DatePipe,
         FridgeService,
         FoodItemService
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [
+        FridgeModal
+    ]
 })
 export class AppModule {
 }

@@ -1,12 +1,10 @@
 export class Url {
 
-    public static readonly baseUrl: string = "//localhost:8080";
+    static readonly API: string = "//localhost:8080";
+    static readonly FRIDGE_API: string = Url.API + "/fridge";
+    static readonly FOOD_API: string = Url.API + "/food";
 
-    public static getFridge() {
-        return Url.baseUrl + "/fridge";
-    }
-
-    public static loadFoodItemsByFridgeId(id: string) {
-        return `${Url.baseUrl}/food?id=${id}`;
+    static loadFoodItemsByFridgeId(id: string) {
+        return `${Url.FOOD_API}?id=${id}`;
     }
 }

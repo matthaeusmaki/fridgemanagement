@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * REST controller to create and change a fridge
  */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/fridge")
 public class FridgeController {
@@ -31,7 +32,6 @@ public class FridgeController {
      * Load all {@link Fridge} elements
      * @return a list of {@link Fridge}
      */
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.GET)
     public List<Fridge> loadAll() {
         return service.loadAll();

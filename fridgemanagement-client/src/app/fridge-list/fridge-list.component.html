@@ -1,6 +1,6 @@
 <mat-accordion multi="true" class="example-headers-align">
     <mat-expansion-panel *ngFor="let fridge of fridgeList">
-        <mat-expansion-panel-header >
+        <mat-expansion-panel-header>
             <mat-panel-title>
                 {{fridge.name}}
             </mat-panel-title>
@@ -17,7 +17,9 @@
                 <mat-icon aria-label="Alphabetisch sortieren">sort</mat-icon>
             </button>
             <button mat-icon-button matTooltip="Nach Ablaufdatum sortieren">
-                <mat-icon aria-label="Nach Ablaufdatum sortieren">hourglass_empty</mat-icon>
+                <mat-icon aria-label="Nach Ablaufdatum sortieren">
+                    hourglass_empty
+                </mat-icon>
             </button>
         </div>
 
@@ -27,7 +29,8 @@
 
     </mat-expansion-panel>
 </mat-accordion>
-<button mat-fab color="primary" matTooltip="Kühlschrank hinzufügen" class="add-fridge">
+<button mat-fab color="primary" matTooltip="Kühlschrank hinzufügen"
+        class="add-fridge" (click)="openFridgeModal()">
     <mat-icon aria-label="Kühlschrank hinzufügen">add</mat-icon>
 </button>
 

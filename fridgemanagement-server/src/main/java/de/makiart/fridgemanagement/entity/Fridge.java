@@ -15,11 +15,19 @@ import java.util.List;
 public class Fridge {
 
     @Id
-    private String id;
+    private ObjectId id;
 
     // name of the fridge
     private String name;
 
     // description of the fridge
     private String description;
+
+    public String getId() {
+        return id.toString();
+    }
+
+    public void setId(String id) {
+        this.id = new ObjectId(id);
+    }
 }
