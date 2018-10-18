@@ -10,6 +10,7 @@
                 class="open-closed-icon"
                 [matTooltip]="getOpenClosedMessage(item.openDate)"
                 matTooltipClass="food-item-tooltip"></mat-icon>
+
             <mat-progress-bar mode="determinate"
                               value="{{item.getRemainingPercent()}}"
                               color="{{item.getRemainingPercent() <= 75 ? 'primary' : 'warn'}}"
