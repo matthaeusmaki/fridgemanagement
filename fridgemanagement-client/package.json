@@ -5,6 +5,7 @@
         "ng": "ng",
         "start": "ng serve",
         "start:aot": "ng serve --aot",
+        "start:aot:remote": "ng serve --aot --host 0.0.0.0",
         "start:prod": "ng serve --prod",
         "build": "ng build",
         "build:aot": "ng build --aot",

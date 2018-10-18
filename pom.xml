@@ -14,5 +14,4 @@
         <module>fridgemanagement-client</module>
         <module>fridgemanagement-server</module>
     </modules>
-
 </project>

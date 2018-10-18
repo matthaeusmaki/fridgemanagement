@@ -33,6 +33,12 @@
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.6</version>
+
+                <configuration>
+                    <nodeVersion>v8.11.1</nodeVersion>
+                    <npmVersion>6.4.1</npmVersion>
+                </configuration>
+
                 <executions>
                     <execution>
                         <id>install node and npm</id>
@@ -45,11 +51,29 @@
                         </configuration>
                     </execution>
 
+                    <!--<execution>-->
+                        <!--<id>npm run build</id>-->
+                        <!--<goals>-->
+                            <!--<goal>npm</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<arguments>run build</arguments>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                    </execution>
+
                     <execution>
                         <id>npm run build</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
+
                         <configuration>
                             <arguments>run build</arguments>
                         </configuration>
@@ -58,5 +82,12 @@
                 </executions>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>target/client</directory>
+                <targetPath>static</targetPath>
+            </resource>
+        </resources>
     </build>
 </project>
