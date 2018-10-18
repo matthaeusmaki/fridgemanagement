@@ -21,7 +21,13 @@ export class FridgeService {
         return this.http.get<Fridge[]>(Url.FRIDGE_API);
     }
 
-    createFridge(fridge: Fridge): Observable<Fridge> {
-        return this.http.post<Fridge>(Url.FRIDGE_API, fridge, httpOptions);
+    saveFridge(fridge: Fridge): Observable<Fridge> {
+        let result: Observable<Fridge>;
+        if (fridge.id) {
+            result = this.http.put<Fridge>(Url.FRIDGE_API, fridge, httpOptions);
+        } else {
+            result = this.http.post<Fridge>(Url.FRIDGE_API, fridge, httpOptions);
+        }
+        return result;
     }
 }

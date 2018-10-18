@@ -22,8 +22,12 @@ public class FridgeCrudService {
      * @param fridge to save
      * @return the persisted fridge
      */
-    public Fridge createFridge(Fridge fridge) {
-        return repo.insert(fridge);
+    public Fridge saveFridge(Fridge fridge) {
+        if (fridge.getId().isBlank()) {
+            return repo.insert(fridge);
+        } else {
+            return repo.save(fridge);
+        }
     }
 
     /**

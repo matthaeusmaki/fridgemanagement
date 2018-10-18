@@ -10,9 +10,15 @@
         </mat-expansion-panel-header>
 
         <div class="button-container">
-            <button mat-fab color="primary" matTooltip="Essen hinzufügen">
+            <button mat-mini-fab color="primary" matTooltip="Essen hinzufügen">
                 <mat-icon aria-label="Essen hinzufügen">add</mat-icon>
             </button>
+
+            <button mat-icon-button matTooltip="{{fridge.name}} bearbeiten"
+                    (click)="openFridgeModal(fridge)">
+                <mat-icon aria-label="Bearbeiten">edit</mat-icon>
+            </button>
+
             <button mat-icon-button matTooltip="Alphabetisch sortieren">
                 <mat-icon aria-label="Alphabetisch sortieren">sort</mat-icon>
             </button>

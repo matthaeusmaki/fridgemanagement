@@ -44,7 +44,17 @@ public class FridgeController {
      */
     @RequestMapping(method = RequestMethod.POST)
     public Fridge create(@RequestBody Fridge fridge) {
-        return service.createFridge(fridge);
+        return service.saveFridge(fridge);
+    }
+
+    /**
+     * Update an existing {@link Fridge} element
+     * @param fridge to be saved
+     * @return the updated fridge
+     */
+    @RequestMapping(method = RequestMethod.PUT)
+    public Fridge update(@RequestBody Fridge fridge) {
+        return service.saveFridge(fridge);
     }
 
     /**

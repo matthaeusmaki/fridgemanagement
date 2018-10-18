@@ -10,6 +10,7 @@ import {Fridge} from "../shared/model/fridge.model";
 })
 export class FridgeModal {
 
+
     constructor(public dialogRef: MatDialogRef<FridgeModal>,
                 private fridgeService: FridgeService,
                 @Inject(MAT_DIALOG_DATA) public data: Fridge) {
@@ -20,7 +21,7 @@ export class FridgeModal {
     }
 
     onSave(): void {
-        this.fridgeService.createFridge(this.data)
+        this.fridgeService.saveFridge(this.data)
             .subscribe(result => {
                 this.dialogRef.close(result);
             }, error => {

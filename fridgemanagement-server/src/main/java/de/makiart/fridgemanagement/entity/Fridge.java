@@ -5,12 +5,11 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
-@ToString @EqualsAndHashCode
+@ToString
+@EqualsAndHashCode
 @Document
 public class Fridge {
 
@@ -24,7 +23,7 @@ public class Fridge {
     private String description;
 
     public String getId() {
-        return id.toString();
+        return id == null ? "" : id.toString();
     }
 
     public void setId(String id) {

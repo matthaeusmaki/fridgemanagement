@@ -27,14 +27,22 @@ export class FridgeListComponent implements OnInit {
         })
     }
 
-    protected openFridgeModal(selectedFridge?: Fridge): void {
+    public openFridgeModal(selectedFridge?: Fridge): void {
         const dialogRef = this.dialog.open(FridgeModal, {
-            width: "250px",
-            data: selectedFridge || new Fridge()
+            width: "500px",
+            data: new Fridge(selectedFridge)
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-            this.loadData();
-        });
+        dialogRef.afterClosed()
+            .subscribe(result => {
+                if (result) {
+                    let fridge = this.fridgeList.find(f => f.id === result.id);
+                    if (fridge) {
+                        this.fridgeList[this.fridgeList.indexOf(fridge)] = result;
+                    } else {
+                        this.fridgeList.push(result);
+                    }
+                }
+            });
     }
 }
