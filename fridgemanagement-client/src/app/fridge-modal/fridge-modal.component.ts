@@ -5,13 +5,12 @@ import {Fridge} from "../shared/model/fridge.model";
 
 @Component({
     selector: 'fm-fridge-modal',
-    templateUrl: './fridge.modal.component.html',
-    styleUrls: ['./fridge.modal.component.less']
+    templateUrl: './fridge-modal.component.html',
+    styleUrls: ['./fridge-modal.component.less']
 })
-export class FridgeModal {
+export class FridgeModalComponent {
 
-
-    constructor(public dialogRef: MatDialogRef<FridgeModal>,
+    constructor(public dialogRef: MatDialogRef<FridgeModalComponent>,
                 private fridgeService: FridgeService,
                 @Inject(MAT_DIALOG_DATA) public data: Fridge) {
     }

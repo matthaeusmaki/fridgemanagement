@@ -13,12 +13,10 @@ import java.util.Optional;
 public class FoodCrudService {
 
     private FoodRepository repo;
-    private FridgeRepository frepo;
 
     @Autowired
-    public FoodCrudService(FoodRepository repo, FridgeRepository frepo) {
+    public FoodCrudService(FoodRepository repo) {
         this.repo = repo;
-        this.frepo = frepo;
     }
 
     /**
@@ -26,8 +24,16 @@ public class FoodCrudService {
      * @param food to save
      * @return the persisted {@link FoodItem}
      */
-    public FoodItem createFoodItem(FoodItem food) {
-        return repo.save(food);
+    public FoodItem saveFoodItem(FoodItem food) {
+        System.out.println(food.toString());
+        return food;
+//        FoodItem result;
+//        if (food.getId().isBlank()) {
+//            result = repo.insert(food);
+//        } else {
+//            result = repo.save(food);
+//        }
+//        return result;
     }
 
     /**

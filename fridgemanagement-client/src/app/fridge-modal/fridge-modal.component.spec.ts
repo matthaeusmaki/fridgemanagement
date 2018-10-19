@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FridgeModal } from './fridge.modal.component';
+import { FridgeModalComponent } from './fridge-modal.component';
 
 describe('Fridge.ModalComponent', () => {
-  let component: FridgeModal;
-  let fixture: ComponentFixture<FridgeModal>;
+  let component: FridgeModalComponent;
+  let fixture: ComponentFixture<FridgeModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FridgeModal ]
+      declarations: [ FridgeModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FridgeModal);
+    fixture = TestBed.createComponent(FridgeModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,15 +5,17 @@ import {HttpClientModule} from '@angular/common/http'
 import {
     MatButtonModule,
     MatCardModule,
-    MatExpansionModule,
-    MatIconModule,
-    MatListModule,
-    MatProgressBarModule,
-    MatToolbarModule,
-    MatTooltipModule,
+    MatDatepickerModule,
     MatDialogModule,
+    MatExpansionModule,
     MatFormFieldModule,
-    MatInputModule
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatNativeDateModule,
+    MatProgressBarModule, MatSelectModule,
+    MatToolbarModule,
+    MatTooltipModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -23,15 +25,18 @@ import {FridgeListComponent} from './fridge-list/fridge-list.component';
 import {DatePipe} from '@angular/common';
 import {FoodItemService} from "./shared/service/food-item.service";
 import {FridgeService} from "./shared/service/fridge.service";
-import {FridgeModal} from './fridge-modal/fridge.modal.component';
+import {FridgeModalComponent} from './fridge-modal/fridge-modal.component';
 import {FormsModule} from '@angular/forms';
+import {FoodModalComponent} from './food-modal/food-modal.component';
+
 
 @NgModule({
     declarations: [
         AppComponent,
         FoodItemListComponent,
         FridgeListComponent,
-        FridgeModal,
+        FridgeModalComponent,
+        FoodModalComponent,
     ],
     imports: [
         BrowserModule,
@@ -48,7 +53,10 @@ import {FormsModule} from '@angular/forms';
         MatDialogModule,
         MatInputModule,
         MatFormFieldModule,
-        FormsModule
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule
     ],
     providers: [
         DatePipe,
@@ -57,7 +65,8 @@ import {FormsModule} from '@angular/forms';
     ],
     bootstrap: [AppComponent],
     entryComponents: [
-        FridgeModal
+        FridgeModalComponent,
+        FoodModalComponent
     ]
 })
 export class AppModule {

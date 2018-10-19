@@ -16,8 +16,8 @@
                 matTooltipClass="food-item-tooltip"></mat-icon>
 
             <mat-progress-bar mode="determinate"
-                              value="{{item.getRemainingPercent()}}"
-                              color="{{item.getRemainingPercent() <= 75 ? 'primary' : 'warn'}}"
+                              value="{{getRemainingPercent(item)}}"
+                              color="{{getRemainingPercent(item) <= 75 ? 'primary' : 'warn'}}"
                               matTooltip="Mindestens haltbar bis {{item.expirationDate | date:'dd.MM.yyyy'}} noch {{item.remainingDays}} Tage"></mat-progress-bar>
             <span
                 class="expiration-date">{{item.expirationDate | date:'dd.MM.yyyy'}}</span>
@@ -28,7 +28,8 @@
         <button mat-icon-button matTooltip="{{item.name}} aufgegessen">
             <mat-icon aria-label="Aufgegessen">local_dining</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="{{item.name}} bearbeiten">
+        <button mat-icon-button matTooltip="{{item.name}} bearbeiten"
+                (click)="openFoodItemModal(item)">
             <mat-icon aria-label="Bearbeiten">edit</mat-icon>
         </button>
     </mat-card-actions>

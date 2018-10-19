@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FridgeService} from "../shared/service/fridge.service";
 import {Fridge} from "../shared/model/fridge.model";
 import {MatDialog} from '@angular/material';
-import {FridgeModal} from "../fridge-modal/fridge.modal.component";
+import {FridgeModalComponent} from "../fridge-modal/fridge-modal.component";
 
 @Component({
     selector: 'fm-fridge-list',
@@ -28,7 +28,7 @@ export class FridgeListComponent implements OnInit {
     }
 
     public openFridgeModal(selectedFridge?: Fridge): void {
-        const dialogRef = this.dialog.open(FridgeModal, {
+        const dialogRef = this.dialog.open(FridgeModalComponent, {
             width: "500px",
             data: new Fridge(selectedFridge)
         });

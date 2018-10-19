@@ -13,4 +13,14 @@ export class FoodItemService {
     loadFoodItemsByFridgeId(id: string): Observable<FoodItem[]> {
         return this.http.get<FoodItem[]>(Url.loadFoodItemsByFridgeId(id));
     }
+
+    saveFoodItem(foodItem: FoodItem): Observable<FoodItem> {
+        let result: Observable<FoodItem>;
+        if (foodItem.id) {
+            result = this.http.put<FoodItem>(Url.FOOD_API, foodItem);
+        } else {
+            result = this.http.post<FoodItem>(Url.FOOD_API, foodItem);
+        }
+        return result;
+    }
 }

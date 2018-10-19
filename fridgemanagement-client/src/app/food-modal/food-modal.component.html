@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Essen {{data.id ? "Bearbeiten" : "Erstellen"}}</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="data.name"/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="BarcodeId" [(ngModel)]="data.barcodeId"/>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="startDatePicker"
+               placeholder="Gekauft am" (click)="startDatePicker.open()"
+               value="{{data.startDate}}">
+        <mat-datepicker-toggle matSuffix
+                               [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="openDatePicker"
+               placeholder="Geöffnet am {{data.openDate ? '' : '(noch nicht geöffnet)'}}"
+               (click)="openDatePicker.open()"
+               value="{{data.openDate}}">
+        <mat-datepicker-toggle matSuffix
+                               [for]="openDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #openDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="expirationPicker"
+               placeholder="Mindestens Haltbar bis"
+               (click)="expirationPicker.open()"
+               value="{{data.expirationDate}}">
+        <mat-datepicker #expirationPicker></mat-datepicker>
+        <mat-datepicker-toggle matSuffix
+                               [for]="expirationPicker"></mat-datepicker-toggle>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Kühlschrank auswählen"
+                    [(ngModel)]="data.fridgeId">
+            <mat-option *ngFor="let fridge of fridgeList" [value]="fridge.id">
+                {{fridge.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onSave()">Ok</button>
+    <button mat-raised-button (click)="onCancel()">Abbrechen</button>
+</div>

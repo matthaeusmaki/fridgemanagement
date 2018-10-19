@@ -1,14 +1,13 @@
 package de.makiart.fridgemanagement.controller;
 
 import de.makiart.fridgemanagement.entity.FoodItem;
-import de.makiart.fridgemanagement.entity.Fridge;
 import de.makiart.fridgemanagement.service.FoodCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/food")
 public class FoodController {
@@ -20,7 +19,6 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.GET)
     public List<FoodItem> loadByFridgeId(@RequestParam String id) {
         return foodService.loadAllOfFridge(id);
@@ -33,7 +31,17 @@ public class FoodController {
      */
     @RequestMapping(method = RequestMethod.POST)
     public FoodItem create(@RequestBody FoodItem food) {
-        return foodService.createFoodItem(food);
+        return foodService.saveFoodItem(food);
+    }
+
+    /**
+     * Updates an existing {@link FoodItem}
+     * @param food to update
+     * @return the updated {@link FoodItem}
+     */
+    @RequestMapping(method = RequestMethod.PUT)
+    public FoodItem update(@RequestBody FoodItem food) {
+        return foodService.saveFoodItem(food);
     }
 
     /**
