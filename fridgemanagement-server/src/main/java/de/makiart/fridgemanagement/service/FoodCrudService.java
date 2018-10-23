@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 @Service
 public class FoodCrudService {
 
@@ -21,23 +23,23 @@ public class FoodCrudService {
 
     /**
      * Save a new {@link FoodItem}
+     *
      * @param food to save
      * @return the persisted {@link FoodItem}
      */
     public FoodItem saveFoodItem(FoodItem food) {
-        System.out.println(food.toString());
-        return food;
-//        FoodItem result;
-//        if (food.getId().isBlank()) {
-//            result = repo.insert(food);
-//        } else {
-//            result = repo.save(food);
-//        }
-//        return result;
+        FoodItem result;
+        if (isBlank(food.getId())) {
+            result = repo.insert(food);
+        } else {
+            result = repo.save(food);
+        }
+        return result;
     }
 
     /**
      * Load a {@link FoodItem} by id
+     *
      * @param id of the requested object
      * @return a {@link Optional} with the requested object or empty
      */
@@ -47,6 +49,7 @@ public class FoodCrudService {
 
     /**
      * Load all {@link FoodItem} of the given {@link Fridge}
+     *
      * @param id of the fridge
      * @return a list of {@link FoodItem} or a empty list
      */
@@ -56,6 +59,7 @@ public class FoodCrudService {
 
     /**
      * Delete {@link FoodItem} by id
+     *
      * @param id of the food to delete
      */
     public void deleteFoodItem(String id) {

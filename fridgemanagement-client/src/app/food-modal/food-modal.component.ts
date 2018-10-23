@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {MAT_DIALOG_DATA, MatDatepickerInputEvent, MatDialogRef} from "@angular/material";
 import {FoodItemService} from "../shared/service/food-item.service";
 import {FoodItem} from "../shared/model/food-item.model";
 import {FridgeService} from "../shared/service/fridge.service";
@@ -25,6 +25,24 @@ export class FoodModalComponent {
         this.fridgeService.loadAll().subscribe(result => {
             this.fridgeList = result;
         });
+    }
+
+    changeStartDate(event: MatDatepickerInputEvent<Date>) {
+        this.changeDateEvent("startDate", event);
+    }
+
+    changeOpenDate(event: MatDatepickerInputEvent<Date>) {
+        this.changeDateEvent("openDate", event);
+    }
+
+    changeExpirationDate(event: MatDatepickerInputEvent<Date>) {
+        this.changeDateEvent("expirationDate", event);
+    }
+
+    changeDateEvent(prop: string, event: MatDatepickerInputEvent<Date>) {
+        let updatedDate = new Date();
+        updatedDate.setFullYear(event.value.getUTCFullYear(), event.value.getMonth(), event.value.getDate());
+        this.data[prop] =  updatedDate;
     }
 
     onCancel(): void {

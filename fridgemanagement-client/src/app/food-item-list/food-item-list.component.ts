@@ -39,7 +39,7 @@ export class FoodItemListComponent implements OnInit {
         }
     }
 
-    protected getRemainingPercent(food: FoodItem): number {
+    public static getRemainingPercent(food: FoodItem): number {
         if (!food.remainingPercent) {
             let startRemainging = FoodItemListComponent.calculateDays(new Date(food.startDate), new Date(food.expirationDate));
             food.remainingDays = FoodItemListComponent.calculateDays(new Date(), new Date(food.expirationDate));
@@ -56,10 +56,12 @@ export class FoodItemListComponent implements OnInit {
         return Math.ceil(Math.abs(diff) / (1000 * 3600 * 24));
     }
 
-    protected openFoodItemModal(selectedFoodItem?: FoodItem) {
+    public openFoodItemModal(selectedFoodItem?: FoodItem) {
+        let foodItem = new FoodItem(selectedFoodItem);
+        foodItem.fridgeId = this.fridgeId;
         const dialogRef = this.dialog.open(FoodModalComponent, {
             width: "500px",
-            data: new FoodItem(selectedFoodItem)
+            data: foodItem
         });
 
         dialogRef.afterClosed()

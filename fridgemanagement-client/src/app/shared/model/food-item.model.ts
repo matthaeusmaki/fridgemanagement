@@ -12,13 +12,13 @@ export class FoodItem {
     remainingDays: number;
 
     constructor(data?: FoodItem) {
-        this.id = data.id || undefined;
-        this.name = data.name || "";
-        this.barcodeId = data.barcodeId || "";
-        this.openDate = data.openDate || null;
-        this.expirationDate = data.expirationDate || new Date();
-        this.fridgeId = data.fridgeId || "";
-        this.startDate = data.startDate || new Date();
+        this.id = data ? data.id || undefined : undefined;
+        this.name = data ? data.name || "" : "";
+        this.barcodeId = data ? data.barcodeId || "" : "";
+        this.openDate = data ? data.openDate || null : null;
+        this.expirationDate = data ? data.expirationDate || new Date() : new Date();
+        this.fridgeId = data ? data.fridgeId || "" : "";
+        this.startDate = data ? data.startDate || new Date() : new Date();
     }
 
 }

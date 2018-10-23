@@ -1,8 +1,9 @@
 <h1 mat-dialog-title>Essen {{data.id ? "Bearbeiten" : "Erstellen"}}</h1>
 <div mat-dialog-content>
     <mat-form-field>
-        <input matInput placeholder="Name" [(ngModel)]="data.name"/>
+        <input matInput placeholder="Name" [(ngModel)]="data.name" required/>
     </mat-form-field>
+
     <mat-form-field>
         <input matInput placeholder="BarcodeId" [(ngModel)]="data.barcodeId"/>
     </mat-form-field>
@@ -10,7 +11,10 @@
     <mat-form-field>
         <input matInput [matDatepicker]="startDatePicker"
                placeholder="Gekauft am" (click)="startDatePicker.open()"
-               value="{{data.startDate}}">
+               (dateInput)="changeStartDate($event)"
+               (dateChange)="changeStartDate($event)"
+               [value]="data.startDate"
+               required>
         <mat-datepicker-toggle matSuffix
                                [for]="startDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #startDatePicker></mat-datepicker>
@@ -20,23 +24,29 @@
         <input matInput [matDatepicker]="openDatePicker"
                placeholder="Geöffnet am {{data.openDate ? '' : '(noch nicht geöffnet)'}}"
                (click)="openDatePicker.open()"
-               value="{{data.openDate}}">
+               (dateInput)="changeOpenDate($event)"
+               (dateChange)="changeOpenDate($event)"
+               [value]="data.openDate">
         <mat-datepicker-toggle matSuffix
                                [for]="openDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #openDatePicker></mat-datepicker>
     </mat-form-field>
+
     <mat-form-field>
         <input matInput [matDatepicker]="expirationPicker"
                placeholder="Mindestens Haltbar bis"
                (click)="expirationPicker.open()"
-               value="{{data.expirationDate}}">
-        <mat-datepicker #expirationPicker></mat-datepicker>
+               (dateInput)="changeExpirationDate($event)"
+               (dateChange)="changeExpirationDate($event)"
+               [value]="data.expirationDate" required>
         <mat-datepicker-toggle matSuffix
                                [for]="expirationPicker"></mat-datepicker-toggle>
+        <mat-datepicker #expirationPicker></mat-datepicker>
     </mat-form-field>
+
     <mat-form-field>
         <mat-select placeholder="Kühlschrank auswählen"
-                    [(ngModel)]="data.fridgeId">
+                    [(ngModel)]="data.fridgeId" required="">
             <mat-option *ngFor="let fridge of fridgeList" [value]="fridge.id">
                 {{fridge.name}}
             </mat-option>
