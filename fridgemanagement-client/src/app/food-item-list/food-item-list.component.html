@@ -1,15 +1,17 @@
-<button mat-mini-fab color="primary" matTooltip="Essen hinzufügen"
-        (click)="openFoodItemModal()">
-    <mat-icon aria-label="Essen hinzufügen">add</mat-icon>
-</button>
-<button mat-icon-button matTooltip="Alphabetisch sortieren">
-    <mat-icon aria-label="Alphabetisch sortieren">sort</mat-icon>
-</button>
-<button mat-icon-button matTooltip="Nach Ablaufdatum sortieren">
-    <mat-icon aria-label="Nach Ablaufdatum sortieren">
-        hourglass_empty
-    </mat-icon>
-</button>
+<div class="button-container">
+    <button mat-mini-fab color="primary" matTooltip="Essen hinzufügen"
+            (click)="openFoodItemModal()">
+        <mat-icon aria-label="Essen hinzufügen">add</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Alphabetisch sortieren">
+        <mat-icon aria-label="Alphabetisch sortieren">sort</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Nach Ablaufdatum sortieren">
+        <mat-icon aria-label="Nach Ablaufdatum sortieren">
+            hourglass_empty
+        </mat-icon>
+    </button>
+</div>
 
 <mat-card *ngFor="let item of foodItems">
     <mat-card-title>

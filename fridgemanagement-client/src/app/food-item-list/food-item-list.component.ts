@@ -39,7 +39,7 @@ export class FoodItemListComponent implements OnInit {
         }
     }
 
-    public static getRemainingPercent(food: FoodItem): number {
+    public getRemainingPercent(food: FoodItem): number {
         if (!food.remainingPercent) {
             let startRemainging = FoodItemListComponent.calculateDays(new Date(food.startDate), new Date(food.expirationDate));
             food.remainingDays = FoodItemListComponent.calculateDays(new Date(), new Date(food.expirationDate));
