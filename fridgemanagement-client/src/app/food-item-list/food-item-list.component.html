@@ -16,12 +16,10 @@
 <mat-card *ngFor="let item of foodItems">
     <mat-card-title>
         {{item.name}}
-
-        <button mat-icon-button matTooltip="{{item.name}} entfernen">
+        <button mat-icon-button class="remove-button"
+                matTooltip="{{item.name}} entfernen" (click)="onRemoveItem(item)">
             <mat-icon aria-label="Entfernen">clear</mat-icon>
         </button>
-
-
     </mat-card-title>
 
     <mat-card-content>

@@ -62,7 +62,12 @@ public class FoodCrudService {
      *
      * @param id of the food to delete
      */
-    public void deleteFoodItem(String id) {
-        repo.deleteById(id);
+    public boolean deleteFoodItem(String id) {
+        try {
+            repo.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

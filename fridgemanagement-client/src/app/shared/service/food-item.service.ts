@@ -23,4 +23,8 @@ export class FoodItemService {
         }
         return result;
     }
+
+    removeFoodItem(foodItemId: string): Observable<boolean> {
+        return this.http.delete<boolean>(Url.deleteFoodItemById(foodItemId), foodItemId);
+    }
 }

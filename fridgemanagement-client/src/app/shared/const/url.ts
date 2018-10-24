@@ -7,4 +7,8 @@ export class Url {
     static loadFoodItemsByFridgeId(id: string) {
         return `${Url.FOOD_API}?id=${id}`;
     }
+
+    static deleteFoodItemById(id: string) {
+        return `${Url.FOOD_API}?id=${id}`;
+    }
 }

@@ -28,6 +28,7 @@ import {FridgeService} from "./shared/service/fridge.service";
 import {FridgeModalComponent} from './fridge-modal/fridge-modal.component';
 import {FormsModule} from '@angular/forms';
 import {FoodModalComponent} from './food-modal/food-modal.component';
+import { ConfirmModalComponent } from './shared/component/confirm-modal/confirm-modal.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {FoodModalComponent} from './food-modal/food-modal.component';
         FridgeListComponent,
         FridgeModalComponent,
         FoodModalComponent,
+        ConfirmModalComponent,
     ],
     imports: [
         BrowserModule,
@@ -66,7 +68,8 @@ import {FoodModalComponent} from './food-modal/food-modal.component';
     bootstrap: [AppComponent],
     entryComponents: [
         FridgeModalComponent,
-        FoodModalComponent
+        FoodModalComponent,
+        ConfirmModalComponent
     ]
 })
 export class AppModule {

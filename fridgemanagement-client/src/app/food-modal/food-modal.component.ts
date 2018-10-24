@@ -50,7 +50,6 @@ export class FoodModalComponent {
     }
 
     onSave(): void {
-        console.log('save');
         this.foodService.saveFoodItem(this.data)
             .subscribe(result => {
                 this.dialogRef.close(result);

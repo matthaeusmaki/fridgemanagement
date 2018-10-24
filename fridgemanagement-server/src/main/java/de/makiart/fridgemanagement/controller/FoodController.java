@@ -49,7 +49,7 @@ public class FoodController {
      * @param id of the {@link FoodItem} to delete
      */
     @RequestMapping(method = RequestMethod.DELETE)
-    public void delete(@RequestParam("id") String id) {
-        foodService.deleteFoodItem(id);
+    public Boolean delete(@RequestParam("id") String id) {
+        return foodService.deleteFoodItem(id);
     }
 }

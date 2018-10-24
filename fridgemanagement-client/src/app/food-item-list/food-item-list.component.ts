@@ -4,6 +4,7 @@ import {DatePipe} from '@angular/common';
 import {FoodItem} from "../shared/model/food-item.model";
 import {MatDialog} from "@angular/material";
 import {FoodModalComponent} from "../food-modal/food-modal.component";
+import {ConfirmModalComponent} from "../shared/component/confirm-modal/confirm-modal.component";
 
 @Component({
     selector: 'fm-item-list',
@@ -35,7 +36,7 @@ export class FoodItemListComponent implements OnInit {
         if (date) {
             return `geöffnet am ${this.datePipe.transform(date, "dd.MM.yyyy")}`;
         } else {
-            return "geschlossen";
+            return "noch ungeöffnet";
         }
     }
 
@@ -75,5 +76,22 @@ export class FoodItemListComponent implements OnInit {
                     }
                 }
             })
+    }
+
+    public onRemoveItem(selectedItem: FoodItem): void {
+        const dialogRef = this.dialog.open(ConfirmModalComponent, {
+            width: "500px",
+            data: { name: selectedItem.name }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.foodService.removeFoodItem(selectedItem.id).subscribe(value => {
+                    if (value) {
+                        this.foodItems.splice(this.foodItems.indexOf(selectedItem));
+                    }
+                });
+            }
+        })
     }
 }
