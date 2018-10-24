@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FoodModalComponent } from './food-modal.component';
+import { FridgeDeleteModalComponent } from './fridge-delete-modal.component';
 
-describe('FoodModalComponent', () => {
-  let component: FoodModalComponent;
-  let fixture: ComponentFixture<FoodModalComponent>;
+describe('FridgeDeleteModalComponent', () => {
+  let component: FridgeDeleteModalComponent;
+  let fixture: ComponentFixture<FridgeDeleteModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FoodModalComponent ]
+      declarations: [ FridgeDeleteModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FoodModalComponent);
+    fixture = TestBed.createComponent(FridgeDeleteModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

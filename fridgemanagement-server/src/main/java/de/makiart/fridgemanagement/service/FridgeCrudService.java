@@ -11,14 +11,17 @@ import java.util.Optional;
 public class FridgeCrudService {
 
     private FridgeRepository repo;
+    private FoodCrudService foodService;
 
     @Autowired
-    public FridgeCrudService(FridgeRepository repo) {
+    public FridgeCrudService(FridgeRepository repo, FoodCrudService foodService) {
         this.repo = repo;
+        this.foodService = foodService;
     }
 
     /**
      * Save a fridge and return the persisted object
+     *
      * @param fridge to save
      * @return the persisted fridge
      */
@@ -32,6 +35,7 @@ public class FridgeCrudService {
 
     /**
      * Load all {@link Fridge}s
+     *
      * @return a list of {@link Fridge}
      */
     public List<Fridge> loadAll() {
@@ -40,6 +44,7 @@ public class FridgeCrudService {
 
     /**
      * Load {@link Fridge} by its id
+     *
      * @param id of the requested {@link Fridge}
      * @return a {@link Optional} with the requested {@link Fridge} or empty
      */
@@ -49,10 +54,19 @@ public class FridgeCrudService {
 
     /**
      * Delete {@link Fridge} with requested id
-     * @param id of the {@link Fridge} to delete
+     *
+     * @param fridgeToDeleteId id of the {@link Fridge} to delete
+     * @param newFridgeId      id of the {@link Fridge} the items are set
      */
-    public void deleteFridgeById(String id) {
-        repo.deleteById(id);
+    public boolean deleteFridgeById(String fridgeToDeleteId, String newFridgeId) {
+        try {
+            this.foodService.moveFoodItems(fridgeToDeleteId, newFridgeId);
+            System.out.println("delete fridge with id " + fridgeToDeleteId);
+            repo.deleteById(fridgeToDeleteId);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 

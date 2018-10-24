@@ -62,10 +62,15 @@ public class FridgeController {
      * @param id of the {@link Fridge} to delete
      */
     @RequestMapping(method = RequestMethod.DELETE)
-    public void delete(@RequestParam("id") String id) {
-        service.deleteFridgeById(id);
+    public Boolean delete(@RequestParam("id") String id, @RequestParam("newId") String newId) {
+        return service.deleteFridgeById(id, newId);
     }
 
+    /**
+     * Load {@link Fridge} by given id
+     * @param id of the {@link Fridge}
+     * @return the searched {@link Fridge} or {@link HttpStatus#NOT_FOUND} otherwise
+     */
     @RequestMapping(path = "/{id}")
     public ResponseEntity<Fridge> loadById(@PathVariable String id) {
         Fridge f = service.loadById(id);

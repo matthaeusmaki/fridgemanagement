@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FoodItemService} from "../shared/service/food-item.service";
+import {FoodItemService} from "../../shared/service/food-item.service";
 import {DatePipe} from '@angular/common';
-import {FoodItem} from "../shared/model/food-item.model";
+import {FoodItem} from "../../shared/model/food-item.model";
 import {MatDialog} from "@angular/material";
-import {FoodModalComponent} from "../food-modal/food-modal.component";
-import {ConfirmModalComponent} from "../shared/component/confirm-modal/confirm-modal.component";
+import {FoodEditModalComponent} from "../food-edit-modal/food-edit-modal.component";
+import {ConfirmModalComponent} from "../../shared/component/confirm-modal/confirm-modal.component";
 
 @Component({
     selector: 'fm-item-list',
@@ -60,7 +60,7 @@ export class FoodItemListComponent implements OnInit {
     public openFoodItemModal(selectedFoodItem?: FoodItem) {
         let foodItem = new FoodItem(selectedFoodItem);
         foodItem.fridgeId = this.fridgeId;
-        const dialogRef = this.dialog.open(FoodModalComponent, {
+        const dialogRef = this.dialog.open(FoodEditModalComponent, {
             width: "500px",
             data: foodItem
         });

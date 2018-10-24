@@ -11,4 +11,8 @@ export class Url {
     static deleteFoodItemById(id: string) {
         return `${Url.FOOD_API}?id=${id}`;
     }
+
+    static deleteFridgeById(id: string, newFridgeId: string) {
+        return `${Url.FRIDGE_API}?id=${id}&newId=${newFridgeId}`
+    }
 }

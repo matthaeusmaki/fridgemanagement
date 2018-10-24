@@ -1,16 +1,16 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {FridgeService} from "../shared/service/fridge.service";
-import {Fridge} from "../shared/model/fridge.model";
+import {FridgeService} from "../../shared/service/fridge.service";
+import {Fridge} from "../../shared/model/fridge.model";
 
 @Component({
     selector: 'fm-fridge-modal',
-    templateUrl: './fridge-modal.component.html',
-    styleUrls: ['./fridge-modal.component.less']
+    templateUrl: './fridge-edit-modal.component.html',
+    styleUrls: ['./fridge-edit-modal.component.less']
 })
-export class FridgeModalComponent {
+export class FridgeEditModalComponent {
 
-    constructor(public dialogRef: MatDialogRef<FridgeModalComponent>,
+    constructor(public dialogRef: MatDialogRef<FridgeEditModalComponent>,
                 private fridgeService: FridgeService,
                 @Inject(MAT_DIALOG_DATA) public data: Fridge) {
     }

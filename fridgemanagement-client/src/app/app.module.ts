@@ -13,22 +13,23 @@ import {
     MatInputModule,
     MatListModule,
     MatNativeDateModule,
-    MatProgressBarModule, MatSelectModule,
+    MatProgressBarModule, MatRippleModule, MatSelectModule,
     MatToolbarModule,
     MatTooltipModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-import {FoodItemListComponent} from './food-item-list/food-item-list.component';
-import {FridgeListComponent} from './fridge-list/fridge-list.component';
+import {FoodItemListComponent} from './component/food-item-list/food-item-list.component';
+import {FridgeListComponent} from './component/fridge-list/fridge-list.component';
 import {DatePipe} from '@angular/common';
 import {FoodItemService} from "./shared/service/food-item.service";
 import {FridgeService} from "./shared/service/fridge.service";
-import {FridgeModalComponent} from './fridge-modal/fridge-modal.component';
+import {FridgeEditModalComponent} from './component/fridge-edit-modal/fridge-edit-modal.component';
 import {FormsModule} from '@angular/forms';
-import {FoodModalComponent} from './food-modal/food-modal.component';
+import {FoodEditModalComponent} from './component/food-edit-modal/food-edit-modal.component';
 import { ConfirmModalComponent } from './shared/component/confirm-modal/confirm-modal.component';
+import { FridgeDeleteModalComponent } from './component/fridge-delete-modal/fridge-delete-modal.component';
 
 
 @NgModule({
@@ -36,9 +37,10 @@ import { ConfirmModalComponent } from './shared/component/confirm-modal/confirm-
         AppComponent,
         FoodItemListComponent,
         FridgeListComponent,
-        FridgeModalComponent,
-        FoodModalComponent,
+        FridgeEditModalComponent,
+        FoodEditModalComponent,
         ConfirmModalComponent,
+        FridgeDeleteModalComponent,
     ],
     imports: [
         BrowserModule,
@@ -58,7 +60,8 @@ import { ConfirmModalComponent } from './shared/component/confirm-modal/confirm-
         FormsModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatSelectModule
+        MatSelectModule,
+        MatRippleModule
     ],
     providers: [
         DatePipe,
@@ -67,9 +70,10 @@ import { ConfirmModalComponent } from './shared/component/confirm-modal/confirm-
     ],
     bootstrap: [AppComponent],
     entryComponents: [
-        FridgeModalComponent,
-        FoodModalComponent,
-        ConfirmModalComponent
+        FridgeEditModalComponent,
+        FoodEditModalComponent,
+        ConfirmModalComponent,
+        FridgeDeleteModalComponent
     ]
 })
 export class AppModule {

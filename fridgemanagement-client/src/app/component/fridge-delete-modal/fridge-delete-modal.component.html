@@ -1,0 +1,25 @@
+<h1 matDialogTitle>Kühlschrank löschen</h1>
+<div matDialogContent>
+    <p>Soll der Kühlschrank "{{data.name}}" wirklich gelöscht werden?</p>
+    <div *ngIf="foodItemList.length > 0">
+        <p>Die folgenden Inhalte werden in den gewählten Kühlschrank
+            verschoben:</p>
+        <mat-select placeholder="Kühlschrank auswählen"
+                    [(ngModel)]="selectedFridgeId" required>
+            <mat-option *ngFor="let fridge of fridgeList" [value]="fridge.id">
+                {{fridge.name}}
+            </mat-option>
+        </mat-select>
+        <mat-list role="list" class="food-item-list">
+            <mat-list-item *ngFor="let food of foodItemList">
+                {{food.name}}
+            </mat-list-item>
+        </mat-list>
+    </div>
+</div>
+
+<div matDialogActions>
+    <button mat-raised-button color="primary" (click)="onDelete()">Löschen
+    </button>
+    <button mat-raised-button (click)="onCancel()">Abbrechen</button>
+</div>

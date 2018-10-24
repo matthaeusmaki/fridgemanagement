@@ -30,4 +30,8 @@ export class FridgeService {
         }
         return result;
     }
+
+    deleteFridge(fridgeToDeleteId: string, newFridgeId: string): Observable<boolean> {
+        return this.http.delete<boolean>(Url.deleteFridgeById(fridgeToDeleteId, newFridgeId));
+    }
 }

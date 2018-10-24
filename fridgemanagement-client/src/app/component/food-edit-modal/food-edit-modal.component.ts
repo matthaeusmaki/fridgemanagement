@@ -1,20 +1,20 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDatepickerInputEvent, MatDialogRef} from "@angular/material";
-import {FoodItemService} from "../shared/service/food-item.service";
-import {FoodItem} from "../shared/model/food-item.model";
-import {FridgeService} from "../shared/service/fridge.service";
-import {Fridge} from "../shared/model/fridge.model";
+import {FoodItemService} from "../../shared/service/food-item.service";
+import {FoodItem} from "../../shared/model/food-item.model";
+import {FridgeService} from "../../shared/service/fridge.service";
+import {Fridge} from "../../shared/model/fridge.model";
 
 @Component({
     selector: 'fm-food-modal',
-    templateUrl: './food-modal.component.html',
-    styleUrls: ['./food-modal.component.less']
+    templateUrl: './food-edit-modal.component.html',
+    styleUrls: ['./food-edit-modal.component.less']
 })
-export class FoodModalComponent {
+export class FoodEditModalComponent {
 
     fridgeList: Fridge[];
 
-    constructor(private dialogRef: MatDialogRef<FoodModalComponent>,
+    constructor(private dialogRef: MatDialogRef<FoodEditModalComponent>,
                 private foodService: FoodItemService,
                 private fridgeService: FridgeService,
                 @Inject(MAT_DIALOG_DATA) public data: FoodItem) {

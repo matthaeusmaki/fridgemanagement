@@ -3,6 +3,7 @@ package de.makiart.fridgemanagement.service;
 import de.makiart.fridgemanagement.entity.FoodItem;
 import de.makiart.fridgemanagement.entity.Fridge;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.support.ExcerptProjector;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -67,6 +68,26 @@ public class FoodCrudService {
             repo.deleteById(id);
             return true;
         } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Move foodItems from originalFridgeId to newFridgeId and returns true if successful
+     * @param originalFridgeId the id of the original {@link Fridge}
+     * @param newFridgeId the id of the new {@link Fridge}
+     * @return true if successful and false otherwise
+     */
+    public boolean moveFoodItems(String originalFridgeId, String newFridgeId) {
+        try {
+            System.out.println("move food to fridge with id " + newFridgeId);
+            List<FoodItem> items = this.loadAllOfFridge(originalFridgeId);
+            if (!items.isEmpty()) {
+                items.forEach(item -> item.setFridgeId(newFridgeId));
+                this.repo.saveAll(items);
+            }
+            return true;
+        } catch(Exception e) {
             return false;
         }
     }
