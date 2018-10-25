@@ -30,6 +30,7 @@ import {FormsModule} from '@angular/forms';
 import {FoodEditModalComponent} from './component/food-edit-modal/food-edit-modal.component';
 import { ConfirmModalComponent } from './shared/component/confirm-modal/confirm-modal.component';
 import { FridgeDeleteModalComponent } from './component/fridge-delete-modal/fridge-delete-modal.component';
+import {Url} from "./shared/const/url";
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { FridgeDeleteModalComponent } from './component/fridge-delete-modal/frid
     providers: [
         DatePipe,
         FridgeService,
-        FoodItemService
+        FoodItemService,
+        Url
     ],
     bootstrap: [AppComponent],
     entryComponents: [

@@ -12,7 +12,7 @@ export class AppComponent {
 
     constructor(private matIconRegistry: MatIconRegistry,
                 private domSanitizer: DomSanitizer) {
-        this.matIconRegistry.addSvgIcon("box_closed", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/box_closed.svg"));
-        this.matIconRegistry.addSvgIcon("box_open", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/box_open.svg"));
+        this.matIconRegistry.addSvgIcon("box_closed", this.domSanitizer.bypassSecurityTrustResourceUrl("./assets/box_closed.svg"));
+        this.matIconRegistry.addSvgIcon("box_open", this.domSanitizer.bypassSecurityTrustResourceUrl("./assets/box_open.svg"));
     }
 }

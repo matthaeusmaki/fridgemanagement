@@ -1,18 +1,31 @@
+import {PlatformLocation} from "@angular/common";
+import {Injectable, isDevMode} from "@angular/core";
+
+@Injectable()
 export class Url {
 
-    static readonly API: string = "//localhost:8080";
-    static readonly FRIDGE_API: string = Url.API + "/fridge";
-    static readonly FOOD_API: string = Url.API + "/food";
+    private origin: string = (this.platformLocation as any).location.origin;
+    private pathname: string = (this.platformLocation as any).location.pathname;
 
-    static loadFoodItemsByFridgeId(id: string) {
-        return `${Url.FOOD_API}?id=${id}`;
+    readonly API: string;
+    readonly FRIDGE_API: string;
+    readonly FOOD_API: string;
+
+    constructor(private platformLocation: PlatformLocation) {
+        this.API = (isDevMode() ? "//localhost:8080/" : this.origin + this.pathname);
+        this.FRIDGE_API = this.API + "fridge";
+        this.FOOD_API = this.API + "food";
     }
 
-    static deleteFoodItemById(id: string) {
-        return `${Url.FOOD_API}?id=${id}`;
+    loadFoodItemsByFridgeId(id: string) {
+        return `${this.FOOD_API}?id=${id}`;
     }
 
-    static deleteFridgeById(id: string, newFridgeId: string) {
-        return `${Url.FRIDGE_API}?id=${id}&newId=${newFridgeId}`
+    deleteFoodItemById(id: string) {
+        return `${this.FOOD_API}?id=${id}`;
+    }
+
+    deleteFridgeById(id: string, newFridgeId: string) {
+        return `${this.FRIDGE_API}?id=${id}&newId=${newFridgeId}`
     }
 }

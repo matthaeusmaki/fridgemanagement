@@ -9,7 +9,7 @@
         "start:prod": "ng serve --prod",
         "build": "ng build",
         "build:aot": "ng build --aot",
-        "build:prod": "ng build --prod",
+        "build:prod": "ng build --prod --base-href \"/fridgemanagement/\"",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"

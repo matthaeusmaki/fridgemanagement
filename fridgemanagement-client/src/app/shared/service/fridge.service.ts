@@ -14,24 +14,24 @@ const httpOptions = {
 @Injectable()
 export class FridgeService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private url: Url) {
     }
 
     loadAll(): Observable<Fridge[]> {
-        return this.http.get<Fridge[]>(Url.FRIDGE_API);
+        return this.http.get<Fridge[]>(this.url.FRIDGE_API);
     }
 
     saveFridge(fridge: Fridge): Observable<Fridge> {
         let result: Observable<Fridge>;
         if (fridge.id) {
-            result = this.http.put<Fridge>(Url.FRIDGE_API, fridge, httpOptions);
+            result = this.http.put<Fridge>(this.url.FRIDGE_API, fridge, httpOptions);
         } else {
-            result = this.http.post<Fridge>(Url.FRIDGE_API, fridge, httpOptions);
+            result = this.http.post<Fridge>(this.url.FRIDGE_API, fridge, httpOptions);
         }
         return result;
     }
 
     deleteFridge(fridgeToDeleteId: string, newFridgeId: string): Observable<boolean> {
-        return this.http.delete<boolean>(Url.deleteFridgeById(fridgeToDeleteId, newFridgeId));
+        return this.http.delete<boolean>(this.url.deleteFridgeById(fridgeToDeleteId, newFridgeId));
     }
 }

@@ -81,7 +81,7 @@ export class FoodItemListComponent implements OnInit {
     public onRemoveItem(selectedItem: FoodItem): void {
         const dialogRef = this.dialog.open(ConfirmModalComponent, {
             width: "500px",
-            data: { name: selectedItem.name }
+            data: {name: selectedItem.name}
         });
 
         dialogRef.afterClosed().subscribe(result => {
