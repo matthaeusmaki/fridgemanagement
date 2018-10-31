@@ -1,0 +1,14 @@
+spring.data.mongodb.host=[db-host]
+spring.data.mongodb.port=[db-port]
+spring.data.mongodb.authentication-database=[authentication_database]
+spring.data.mongodb.username=[username]
+spring.data.mongodb.password=[password]
+spring.data.mongodb.database=[db-name]
+
+#ssl configuration
+server.port=8443
+server.require-ssl=true
+server.ssl.key-store=[keystore-name]
+server.ssl.key-store-password=[keystore-password]
+server.ssl.key-store-type=[keystore-type]
+server.ssl.key-alias=[key-alias]
