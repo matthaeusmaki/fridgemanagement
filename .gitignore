@@ -85,3 +85,5 @@ secrets.yml
 
 #configuration
 application.properties
+*.p12
+*.jks
