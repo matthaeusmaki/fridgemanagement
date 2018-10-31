@@ -1,6 +1,7 @@
 package de.makiart.fridgemanagement.service;
 
 import de.makiart.fridgemanagement.entity.Fridge;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class FridgeCrudService {
      * @return the persisted fridge
      */
     public Fridge saveFridge(Fridge fridge) {
-        if (fridge.getId().isBlank()) {
+        if (StringUtils.isBlank(fridge.getId())) {
             return repo.insert(fridge);
         } else {
             return repo.save(fridge);

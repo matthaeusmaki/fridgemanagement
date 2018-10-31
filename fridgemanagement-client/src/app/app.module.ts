@@ -13,7 +13,9 @@ import {
     MatInputModule,
     MatListModule,
     MatNativeDateModule,
-    MatProgressBarModule, MatRippleModule, MatSelectModule,
+    MatProgressBarModule,
+    MatRippleModule,
+    MatSelectModule,
     MatToolbarModule,
     MatTooltipModule
 } from '@angular/material';
@@ -28,10 +30,16 @@ import {FridgeService} from "./shared/service/fridge.service";
 import {FridgeEditModalComponent} from './component/fridge-edit-modal/fridge-edit-modal.component';
 import {FormsModule} from '@angular/forms';
 import {FoodEditModalComponent} from './component/food-edit-modal/food-edit-modal.component';
-import { ConfirmModalComponent } from './shared/component/confirm-modal/confirm-modal.component';
-import { FridgeDeleteModalComponent } from './component/fridge-delete-modal/fridge-delete-modal.component';
+import {ConfirmModalComponent} from './shared/component/confirm-modal/confirm-modal.component';
+import {FridgeDeleteModalComponent} from './component/fridge-delete-modal/fridge-delete-modal.component';
 import {Url} from "./shared/const/url";
+import {RouterModule, Routes} from "@angular/router";
+import {PlaygroundComponent} from './component/playground/playground.component';
 
+const appRoutes: Routes = [
+    {path: "", component: FridgeListComponent},
+    {path: "playground", component: PlaygroundComponent}
+];
 
 @NgModule({
     declarations: [
@@ -42,8 +50,13 @@ import {Url} from "./shared/const/url";
         FoodEditModalComponent,
         ConfirmModalComponent,
         FridgeDeleteModalComponent,
+        PlaygroundComponent,
     ],
     imports: [
+        RouterModule.forRoot(
+            appRoutes,
+            {enableTracing: true}
+        ),
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,
