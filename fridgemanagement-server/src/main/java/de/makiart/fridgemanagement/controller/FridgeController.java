@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * REST controller to create and change a fridge
  */
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/fridge")
 public class FridgeController {

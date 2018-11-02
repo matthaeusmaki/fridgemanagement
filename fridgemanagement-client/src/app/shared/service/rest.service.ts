@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 const headers = new HttpHeaders(
     {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic' + btoa('admin:admin')
+        'Authorization': 'Basic ' + btoa('admin:admin')
     }
 );
 
@@ -20,7 +20,7 @@ export class RestService {
      * @param url Requested url for GET
      */
     public get(url: string): Observable<any> {
-        return this.http.get(url);
+        return this.http.get(url, {headers});
     }
 
     /**
