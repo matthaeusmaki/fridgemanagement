@@ -4,7 +4,7 @@ import {DatePipe} from '@angular/common';
 import {FoodItem} from "../../../../shared/model/food-item.model";
 import {MatDialog, MatIconRegistry} from "@angular/material";
 import {FoodEditModalComponent} from "../food-edit-modal/food-edit-modal.component";
-import {ConfirmModalComponent} from "../../../../shared/component/confirm-modal/confirm-modal.component";
+import {ConfirmModalComponent} from "../../../../shared/modules/confirm-modal/component/confirm-modal.component";
 import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
@@ -86,7 +86,7 @@ export class FoodItemListComponent implements OnInit {
     public onRemoveItem(selectedItem: FoodItem): void {
         const dialogRef = this.dialog.open(ConfirmModalComponent, {
             width: "500px",
-            data: {name: selectedItem.name}
+            data: selectedItem.name
         });
 
         dialogRef.afterClosed().subscribe(result => {

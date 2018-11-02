@@ -10,8 +10,8 @@
         "build": "ng build",
         "build:aot": "ng build --aot",
         "build:prod": "ng build --prod --base-href \"/fridgemanagement/\"",
-        "build:stats": "ng build --stats-json --aot",
-        "analyze": "webpack-bundle-analyzer dist/fridgemanagement-client/stats.json -O",
+        "build:aot:stats:analyze": "ng build --stats-json --aot && webpack-bundle-analyzer dist/fridgemanagement-client/stats.json -O",
+        "build:prod:stats:analyze": "ng build --stats-json --prod && webpack-bundle-analyzer dist/fridgemanagement-client/stats.json -O",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"

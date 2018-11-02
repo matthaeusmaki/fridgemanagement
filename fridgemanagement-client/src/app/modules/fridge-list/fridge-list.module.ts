@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FridgeEditModalComponent} from "./component/fridge-edit-modal/fridge-edit-modal.component";
 import {FoodEditModalComponent} from "./component/food-edit-modal/food-edit-modal.component";
-import {ConfirmModalComponent} from "../../shared/component/confirm-modal/confirm-modal.component";
+import {ConfirmModalComponent} from "../../shared/modules/confirm-modal/component/confirm-modal.component";
 import {FridgeDeleteModalComponent} from "./component/fridge-delete-modal/fridge-delete-modal.component";
 import {FoodItemListComponent} from "./component/food-item-list/food-item-list.component";
 import {FridgeListComponent} from "./component/fridge-list/fridge-list.component";
@@ -23,10 +23,14 @@ import {
     MatTooltipModule
 } from "@angular/material";
 import {FormsModule} from "@angular/forms";
+import {FridgeListRoutingModule} from "./fridge-list-routing.module";
+import {ConfirmModalModule} from "../../shared/modules/confirm-modal/confirm-modal.module";
 
 @NgModule({
     imports: [
         CommonModule,
+        FridgeListRoutingModule,
+        ConfirmModalModule,
         MatButtonModule,
         MatListModule,
         MatExpansionModule,
