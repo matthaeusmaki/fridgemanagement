@@ -1,37 +1,42 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Url} from "../const/url";
 import {Fridge} from "../model/fridge.model";
-import {HttpHeaders} from '@angular/common/http';
-
-const httpOptions = {
-    headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-    })
-};
+import {RestService} from "./rest.service";
 
 @Injectable()
 export class FridgeService {
 
-    constructor(private http: HttpClient, private url: Url) {
+    constructor(private url: Url, private rest: RestService) {
     }
 
-    loadAll(): Observable<Fridge[]> {
-        return this.http.get<Fridge[]>(this.url.FRIDGE_API);
+    /**
+     * Get all Fridges
+     */
+    public loadAll(): Observable<Fridge[]> {
+        return this.rest.get(this.url.FRIDGE_API);
     }
 
-    saveFridge(fridge: Fridge): Observable<Fridge> {
+    /**
+     * Save a Fridge
+     * @param fridge The Fridge to save
+     */
+    public saveFridge(fridge: Fridge): Observable<Fridge> {
         let result: Observable<Fridge>;
         if (fridge.id) {
-            result = this.http.put<Fridge>(this.url.FRIDGE_API, fridge, httpOptions);
+            result = this.rest.put(this.url.FRIDGE_API, fridge);
         } else {
-            result = this.http.post<Fridge>(this.url.FRIDGE_API, fridge, httpOptions);
+            result = this.rest.post(this.url.FRIDGE_API, fridge);
         }
         return result;
     }
 
-    deleteFridge(fridgeToDeleteId: string, newFridgeId: string): Observable<boolean> {
-        return this.http.delete<boolean>(this.url.deleteFridgeById(fridgeToDeleteId, newFridgeId));
+    /**
+     * Remove a Fridge with the requested id. And moving its FoodItems to the Fridge with other id.
+     * @param fridgeToDeleteId Fridge to remove
+     * @param newFridgeId Moving FoodItems to this Fridge
+     */
+    public deleteFridge(fridgeToDeleteId: string, newFridgeId: string): Observable<boolean> {
+        return this.rest.delete(this.url.deleteFridgeById(fridgeToDeleteId, newFridgeId));
     }
 }

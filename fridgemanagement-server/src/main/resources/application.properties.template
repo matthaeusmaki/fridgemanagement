@@ -12,3 +12,6 @@ server.ssl.key-store=[keystore-name]
 server.ssl.key-store-password=[keystore-password]
 server.ssl.key-store-type=[keystore-type]
 server.ssl.key-alias=[key-alias]
+
+spring.security.user.name=[user]
+spring.security.user.password=[password]

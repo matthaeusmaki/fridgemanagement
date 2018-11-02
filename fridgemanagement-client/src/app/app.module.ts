@@ -35,6 +35,7 @@ import {FridgeDeleteModalComponent} from './component/fridge-delete-modal/fridge
 import {Url} from "./shared/const/url";
 import {RouterModule, Routes} from "@angular/router";
 import {PlaygroundComponent} from './component/playground/playground.component';
+import {RestService} from "./shared/service/rest.service";
 
 const appRoutes: Routes = [
     {path: "", component: FridgeListComponent},
@@ -81,7 +82,8 @@ const appRoutes: Routes = [
         DatePipe,
         FridgeService,
         FoodItemService,
-        Url
+        Url,
+        RestService
     ],
     bootstrap: [AppComponent],
     entryComponents: [

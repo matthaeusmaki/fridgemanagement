@@ -1,30 +1,42 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {Url} from "../const/url";
 import {Observable} from 'rxjs';
 import {FoodItem} from "../model/food-item.model";
+import {RestService} from "./rest.service";
 
 @Injectable()
 export class FoodItemService {
 
-    constructor(private http: HttpClient, private url: Url) {
+    constructor(private rest: RestService, private url: Url) {
     }
 
-    loadFoodItemsByFridgeId(id: string): Observable<FoodItem[]> {
-        return this.http.get<FoodItem[]>(this.url.loadFoodItemsByFridgeId(id));
+    /**
+     * Get all FoodItems from requested Fridge
+     * @param id The id of the requested Fridge
+     */
+    public loadFoodItemsByFridgeId(id: string): Observable<FoodItem[]> {
+        return this.rest.get(this.url.loadFoodItemsByFridgeId(id));
     }
 
-    saveFoodItem(foodItem: FoodItem): Observable<FoodItem> {
+    /**
+     * Save a FoodItem
+     * @param foodItem The FoodItem to save
+     */
+    public saveFoodItem(foodItem: FoodItem): Observable<FoodItem> {
         let result: Observable<FoodItem>;
         if (foodItem.id) {
-            result = this.http.put<FoodItem>(this.url.FOOD_API, foodItem);
+            result = this.rest.put(this.url.FOOD_API, foodItem);
         } else {
-            result = this.http.post<FoodItem>(this.url.FOOD_API, foodItem);
+            result = this.rest.post(this.url.FOOD_API, foodItem);
         }
         return result;
     }
 
-    removeFoodItem(foodItemId: string): Observable<boolean> {
-        return this.http.delete<boolean>(this.url.deleteFoodItemById(foodItemId));
+    /**
+     * Removing an FoodItem with requested id
+     * @param foodItemId The id of the FoodItem to remove
+     */
+    public removeFoodItem(foodItemId: string): Observable<boolean> {
+        return this.rest.delete(this.url.deleteFoodItemById(foodItemId));
     }
 }

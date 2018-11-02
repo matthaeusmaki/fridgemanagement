@@ -7,12 +7,16 @@ export class Url {
     private origin: string = (this.platformLocation as any).location.origin;
     private pathname: string = (this.platformLocation as any).location.pathname;
 
+    readonly PORT: string;
+    readonly PROTOCOL: string;
     readonly API: string;
     readonly FRIDGE_API: string;
     readonly FOOD_API: string;
 
     constructor(private platformLocation: PlatformLocation) {
-        this.API = (isDevMode() ? "//localhost:8080/" : this.origin + this.pathname);
+        this.PROTOCOL = "http://";
+        this.PORT = "8080";
+        this.API = (isDevMode() ? this.PROTOCOL + "localhost:" + this.PORT + "/" : this.origin + this.pathname);
         this.FRIDGE_API = this.API + "fridge";
         this.FOOD_API = this.API + "food";
     }
