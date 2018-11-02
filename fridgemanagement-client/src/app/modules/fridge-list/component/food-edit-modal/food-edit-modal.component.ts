@@ -1,9 +1,9 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDatepickerInputEvent, MatDialogRef} from "@angular/material";
-import {FoodItemService} from "../../shared/service/food-item.service";
-import {FoodItem} from "../../shared/model/food-item.model";
-import {FridgeService} from "../../shared/service/fridge.service";
-import {Fridge} from "../../shared/model/fridge.model";
+import {FoodItemService} from "../../../../shared/service/food-item.service";
+import {FoodItem} from "../../../../shared/model/food-item.model";
+import {FridgeService} from "../../../../shared/service/fridge.service";
+import {Fridge} from "../../../../shared/model/fridge.model";
 
 @Component({
     selector: 'fm-food-modal',

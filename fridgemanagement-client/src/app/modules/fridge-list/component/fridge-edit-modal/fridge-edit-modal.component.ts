@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {FridgeService} from "../../shared/service/fridge.service";
-import {Fridge} from "../../shared/model/fridge.model";
+import {FridgeService} from "../../../../shared/service/fridge.service";
+import {Fridge} from "../../../../shared/model/fridge.model";
 
 @Component({
     selector: 'fm-fridge-modal',

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FridgeService} from "../../shared/service/fridge.service";
-import {Fridge} from "../../shared/model/fridge.model";
+import {FridgeService} from "../../../../shared/service/fridge.service";
+import {Fridge} from "../../../../shared/model/fridge.model";
 import {MatDialog} from '@angular/material';
 import {FridgeEditModalComponent} from "../fridge-edit-modal/fridge-edit-modal.component";
 import {FridgeDeleteModalComponent} from "../fridge-delete-modal/fridge-delete-modal.component";

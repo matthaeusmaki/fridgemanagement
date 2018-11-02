@@ -1,6 +1,5 @@
 package de.makiart.fridgemanagement.configuration;
 
-import org.springframework.lang.NonNullApi;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;

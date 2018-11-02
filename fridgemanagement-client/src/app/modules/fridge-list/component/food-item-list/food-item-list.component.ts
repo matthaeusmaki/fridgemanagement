@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FoodItemService} from "../../shared/service/food-item.service";
+import {FoodItemService} from "../../../../shared/service/food-item.service";
 import {DatePipe} from '@angular/common';
-import {FoodItem} from "../../shared/model/food-item.model";
-import {MatDialog} from "@angular/material";
+import {FoodItem} from "../../../../shared/model/food-item.model";
+import {MatDialog, MatIconRegistry} from "@angular/material";
 import {FoodEditModalComponent} from "../food-edit-modal/food-edit-modal.component";
-import {ConfirmModalComponent} from "../../shared/component/confirm-modal/confirm-modal.component";
+import {ConfirmModalComponent} from "../../../../shared/component/confirm-modal/confirm-modal.component";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     selector: 'fm-item-list',
@@ -18,7 +19,11 @@ export class FoodItemListComponent implements OnInit {
 
     constructor(private foodService: FoodItemService,
                 private datePipe: DatePipe,
-                private dialog: MatDialog) {
+                private dialog: MatDialog,
+                private matIconRegistry: MatIconRegistry,
+                private domSanitizer: DomSanitizer) {
+        this.matIconRegistry.addSvgIcon("box_closed", this.domSanitizer.bypassSecurityTrustResourceUrl("./assets/box_closed.svg"));
+        this.matIconRegistry.addSvgIcon("box_open", this.domSanitizer.bypassSecurityTrustResourceUrl("./assets/box_open.svg"));
     }
 
     ngOnInit() {
