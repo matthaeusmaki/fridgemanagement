@@ -10,16 +10,18 @@ import {FridgeService} from "./shared/service/fridge.service";
 import {Url} from "./shared/const/url";
 import {RouterModule, Routes} from "@angular/router";
 import {RestService} from "./shared/service/rest.service";
-import {LoginComponent} from './modules/login/component/login/login.component';
 import {FridgeListModule} from "./modules/fridge-list/fridge-list.module";
 import {MatButtonModule, MatToolbarModule} from "@angular/material";
 import {PlaygroundModule} from "./modules/playground/playground.module";
+import {LoginModule} from "./modules/login/login.module";
+import {LoginComponent} from "./modules/login/component/login/login.component";
 
 const appRoutes: Routes = [
     {
         path: "",
         redirectTo: "",
-        pathMatch: "full"
+        pathMatch: "full",
+        component: LoginComponent
     },
     {
         path: "fridge",
@@ -33,8 +35,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        AppComponent,
-        LoginComponent
+        AppComponent
     ],
     imports: [
         RouterModule.forRoot(
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        LoginModule,
         FridgeListModule,
         PlaygroundModule,
         MatToolbarModule,
