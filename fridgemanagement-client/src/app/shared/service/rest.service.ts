@@ -5,9 +5,9 @@ import {Observable} from 'rxjs';
 const headers = new HttpHeaders(
     {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('admin:admin')
     }
 );
+        // 'Authorization': 'Basic ' + btoa('admin:admin')
 
 @Injectable()
 export class RestService {

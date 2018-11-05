@@ -6,6 +6,9 @@ import {LoginComponent} from "./component/login/login.component";
     imports: [
         CommonModule
     ],
+    exports: [
+        LoginComponent
+    ],
     declarations: [
         LoginComponent
     ],
