@@ -1,13 +1,13 @@
 package de.makiart.fridgemanagement.controller;
 
 import de.makiart.fridgemanagement.entity.FoodItem;
+import de.makiart.fridgemanagement.entity.Fridge;
 import de.makiart.fridgemanagement.service.FoodCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/food")
 public class FoodController {
@@ -19,7 +19,13 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    /**
+     * Load {@link FoodItem}s by the id of their {@link Fridge}
+     * @param id of the {@link Fridge}
+     * @return a {@link List} of {@link FoodItem}s
+     */
+    @GetMapping
+//    @RequestMapping(method = RequestMethod.GET)
     public List<FoodItem> loadByFridgeId(@RequestParam String id) {
         return foodService.loadAllOfFridge(id);
     }
@@ -29,7 +35,8 @@ public class FoodController {
      * @param food to persist
      * @return the persisted {@link FoodItem}
      */
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
+//    @RequestMapping(method = RequestMethod.POST)
     public FoodItem create(@RequestBody FoodItem food) {
         return foodService.saveFoodItem(food);
     }
@@ -39,7 +46,8 @@ public class FoodController {
      * @param food to update
      * @return the updated {@link FoodItem}
      */
-    @RequestMapping(method = RequestMethod.PUT)
+    @PutMapping
+//    @RequestMapping(method = RequestMethod.PUT)
     public FoodItem update(@RequestBody FoodItem food) {
         return foodService.saveFoodItem(food);
     }
@@ -48,7 +56,8 @@ public class FoodController {
      * Delete a {@link FoodItem} with given id
      * @param id of the {@link FoodItem} to delete
      */
-    @RequestMapping(method = RequestMethod.DELETE)
+    @DeleteMapping
+//    @RequestMapping(method = RequestMethod.DELETE)
     public Boolean delete(@RequestParam("id") String id) {
         return foodService.deleteFoodItem(id);
     }
