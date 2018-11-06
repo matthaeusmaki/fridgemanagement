@@ -24,23 +24,15 @@ public class FoodCrudService {
 
     /**
      * Save a new {@link FoodItem}
-     *
      * @param food to save
      * @return the persisted {@link FoodItem}
      */
     public FoodItem saveFoodItem(FoodItem food) {
-        FoodItem result;
-        if (isBlank(food.getId())) {
-            result = repo.insert(food);
-        } else {
-            result = repo.save(food);
-        }
-        return result;
+        return isBlank(food.getId()) ? repo.insert(food) : repo.save(food);
     }
 
     /**
      * Load a {@link FoodItem} by id
-     *
      * @param id of the requested object
      * @return a {@link Optional} with the requested object or empty
      */
@@ -50,7 +42,6 @@ public class FoodCrudService {
 
     /**
      * Load all {@link FoodItem} of the given {@link Fridge}
-     *
      * @param id of the fridge
      * @return a list of {@link FoodItem} or a empty list
      */
@@ -60,7 +51,6 @@ public class FoodCrudService {
 
     /**
      * Delete {@link FoodItem} by id
-     *
      * @param id of the food to delete
      */
     public boolean deleteFoodItem(String id) {
@@ -78,7 +68,7 @@ public class FoodCrudService {
      * @param newFridgeId the id of the new {@link Fridge}
      * @return true if successful and false otherwise
      */
-    public boolean moveFoodItems(String originalFridgeId, String newFridgeId) {
+    boolean moveFoodItems(String originalFridgeId, String newFridgeId) {
         try {
             System.out.println("move food to fridge with id " + newFridgeId);
             List<FoodItem> items = this.loadAllOfFridge(originalFridgeId);

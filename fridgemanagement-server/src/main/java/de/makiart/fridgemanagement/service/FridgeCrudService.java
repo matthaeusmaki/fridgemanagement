@@ -27,11 +27,7 @@ public class FridgeCrudService {
      * @return the persisted fridge
      */
     public Fridge saveFridge(Fridge fridge) {
-        if (StringUtils.isBlank(fridge.getId())) {
-            return repo.insert(fridge);
-        } else {
-            return repo.save(fridge);
-        }
+        return StringUtils.isBlank(fridge.getId()) ? repo.insert(fridge) : repo.save(fridge);
     }
 
     /**
