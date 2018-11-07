@@ -15,3 +15,6 @@ server.ssl.key-alias=[key-alias]
 
 spring.security.user.name=[user]
 spring.security.user.password=[password]
+
+spring.security.jwt.token.secret-key: [secret]
+spring.security.jwt.token.expire-length: [expire-time]
