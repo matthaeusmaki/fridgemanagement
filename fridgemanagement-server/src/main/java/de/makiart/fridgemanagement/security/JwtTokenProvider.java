@@ -27,11 +27,11 @@ import java.util.stream.Collectors;
 @Component
 public class JwtTokenProvider {
 
-    @Value("${spring.security.jwt.token.secret-key}")
+    @Value("${spring.security.jwt.token.secret-key:secret-key}")
     private String secretKey;
 
-    @Value("{spring.security.jwt.token.expire-length}")
-    private long validityInMilliseconds = 3600000; // 1h
+    @Value("{spring.security.jwt.token.expire-length:3600000}")
+    private String validityInMilliseconds = "360000"; // 1h
 
     private MyUserDetails myUserDetails;
 
@@ -54,7 +54,7 @@ public class JwtTokenProvider {
                         .collect(Collectors.toList()));
 
         Date now = new Date();
-        Date validity = new Date(now.getTime() + validityInMilliseconds);
+        Date validity = new Date(now.getTime() + Long.valueOf(validityInMilliseconds));
 
         return Jwts.builder()
                 .setClaims(claims)
